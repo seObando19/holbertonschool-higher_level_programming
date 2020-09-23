@@ -5,13 +5,17 @@ Write a class Square that defines a square.
 
 
 class Square:
-    """
-    Define square
+    """Create an instance of a square object
+
+    Attributes:
+        size: integer number
     """
     def __init__(self, size=0):
-        """
-        Validate size value and Initialize Square attribute
-        """
+        """ Initialize square object
+
+        Args:
+            size (int): side of the square
+       """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
