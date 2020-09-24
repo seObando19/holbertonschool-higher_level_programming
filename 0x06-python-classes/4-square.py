@@ -5,21 +5,14 @@ Write a class Square that defines a square.
 
 
 class Square:
-    """Create an instance of a square object
-
-    Attributes:
-        size: integer number
-    """
+    """init Square and raising error"""
     def __init__(self, size=0):
-        """
-	Initialize square object
-        """
         self.size = size
-
+	'''getter size'''
     @property
     def size(self):
-        return self.size
-
+        return self.__size
+    '''setter size'''
     @size.setter
     def size(self, size):
         if type(size) is not int:
