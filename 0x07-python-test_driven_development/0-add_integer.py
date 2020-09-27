@@ -11,4 +11,3 @@ def add_integer(a, b=98):
         raise TypeError("b must be an integer")
     a, b = int(a), int(b)
     return a + b
-
