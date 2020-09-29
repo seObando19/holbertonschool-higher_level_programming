@@ -5,10 +5,10 @@ Class Rectangle
 
 
 class Rectangle:
-    number_of_instances = 0
     """
         method initialized
     """
+    number_of_instances = 0
     def __init__(self, width=0, height=0):
         type(self).number_of_instances += 1
         self.width = width
@@ -85,5 +85,7 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
+        """Delete base class part of the instance
+        """
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
