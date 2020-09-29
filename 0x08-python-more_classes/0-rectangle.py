@@ -4,7 +4,5 @@ Class Rectangle empty
 """
 
 class Rectangle:
-	"""
-    Define Rectangle class
-    """
+    """ Define Rectangle class """
     pass
