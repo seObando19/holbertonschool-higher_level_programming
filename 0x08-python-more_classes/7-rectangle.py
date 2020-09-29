@@ -78,9 +78,9 @@ class Rectangle:
             h = self.height
             for i in range(h):
                 if i + 1 < h:
-                    valPrint += "#" * w + "\n"
+                    valPrint += str(self.print_symbol) * w + "\n"
                 else:
-                    valPrint += "#" * w
+                    valPrint += str(self.print_symbol) * w
         return valPrint
 
     def __repr__(self):
