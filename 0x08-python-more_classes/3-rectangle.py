@@ -66,11 +66,15 @@ class Rectangle:
         should print the rectangle with the character #
     """
     def __str__(self):
-        if  not self.width == 0 or self.height == 0:
+        valPrint = ""
+        if self.width is 0 or self.height is 0:
+            return valPrint
+        else:
             w = self.width
             h = self.height
             for i in range(h):
-                for j in range(w):
-                    print("#", end="")
-                print("")
-        return ""
+                if i + 1 < h:
+                    valPrint += "#" * w + "\n"
+                else:
+                    valPrint += "#" * w
+        return valPrint
