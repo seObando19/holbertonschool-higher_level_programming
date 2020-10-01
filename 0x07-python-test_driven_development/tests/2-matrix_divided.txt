@@ -25,21 +25,21 @@ TypeError: matrix_divided() missing 1 required positional argument: 'div'
 Test 2: Passing the matrix and integer
 ----------------------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 1))
+>>> matrix_divided(matrix, 1)
 [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
 
 ------------------------------
 Test 3: Passing the matrix and float
 ------------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 2.5))
+>>> matrix_divided(matrix, 2.5)
 [[0.4, 0.8, 1.2], [1.6, 2.0, 2.4]]
 
 ----------------------
 Test 4: Passing the matrix and string
 ----------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, "2"))
+>>> matrix_divided(matrix, "2")
 Traceback (most recent call last):
 ...
 TypeError: div must be a number
@@ -48,7 +48,7 @@ TypeError: div must be a number
 Test 5: passing the matrix and zero number
 -------------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 0))
+>>> matrix_divided(matrix, 0)
 Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
@@ -57,7 +57,7 @@ ZeroDivisionError: division by zero
 Test 6: passing the matrix with row of different sizes.
 -------------------------------------
 >>> matrix = [[1, 2], [4, 5, 6]]
->>> matrix_divided(matrix, 1))
+>>> matrix_divided(matrix, 1)
 Traceback (most recent call last):
 ...
 TypeError: Each row of the matrix must have the same size
@@ -66,7 +66,7 @@ TypeError: Each row of the matrix must have the same size
 Test 7: passing one row of the matrix as tuple
 -----------------------
 >>> matrix = [(1, 2, 3), [4, 5, 6]]
->>> matrix_divided(matrix, 1))
+>>> matrix_divided(matrix, 1)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -75,7 +75,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Test 8: passing an empty list of lists
 -------------------------------
 >>> matrix = [[], [], []]
->>> matrix_divided(matrix, 1))
+>>> matrix_divided(matrix, 1)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -131,10 +131,22 @@ Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 ----------------------------
-Test 15:   passing empty list
+Test 15: passing infinity values inside matrix
 ----------------------------
->>> matrix = []
+>>> matrix = [[1, 2, 3], [4, float("inf"), 6]]
 >>> matrix_divided(matrix, 1)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+[[1.0, 2.0, 3.0], [4.0, inf, 6.0]]
+
+----------------------------
+Test 16: passing nan value
+----------------------------
+>>> matrix = [[1, float("NaN"), 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 1)
+[[1.0, nan, 3.0], [4.0, 5.0, 6.0]]
+
+----------------------------
+Test 16: passing infinity value in the matrix and also for div
+----------------------------
+>>> matrix = [[1, float("inf"), 3], [4, 5, 6]]
+>>> matrix_divided(matrix, float("inf"))
+[[0.0, nan, 0.0], [0.0, 0.0, 0.0]]
