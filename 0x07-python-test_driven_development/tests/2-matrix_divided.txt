@@ -39,7 +39,7 @@ Test 3: Passing the matrix and float
 Test 4: Passing the matrix and string
 ----------------------
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, "14"))
+>>> matrix_divided(matrix, "2"))
 Traceback (most recent call last):
 ...
 TypeError: div must be a number
@@ -56,7 +56,7 @@ ZeroDivisionError: division by zero
 -------------------------------------
 Test 6: passing the matrix with row of different sizes.
 -------------------------------------
->>> matrix = [[1, 2, 3], [4, 5]]
+>>> matrix = [[1, 2], [4, 5, 6]]
 >>> matrix_divided(matrix, 1))
 Traceback (most recent call last):
 ...
@@ -116,6 +116,24 @@ Test 12:  passing div as nan value
 Test 13:   passing a string inside matrix
 ----------------------------
 >>> matrix = [[1, "2", 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 1)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+----------------------------
+Test 14:   passing a matrix as tuple of lists
+----------------------------
+>>> matrix = ([1, 2, 3], [4, 5, 6])
+>>> matrix_divided(matrix, 1)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+----------------------------
+Test 15:   passing empty list
+----------------------------
+>>> matrix = []
 >>> matrix_divided(matrix, 1)
 Traceback (most recent call last):
 ...
