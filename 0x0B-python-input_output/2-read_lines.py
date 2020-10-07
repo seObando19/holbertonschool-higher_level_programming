@@ -13,6 +13,9 @@ def read_lines(filename="", nb_lines=0):
         if nb_lines <= 0 or nb_lines > len(myFile.readlines()):
             print(myFile.read(), end="")
         else:
-            myFile.seek(0)
-            for line in range(nb_lines):
+            totLines = 0
+            for line in myFile:
+                totLines += 1
                 print(myFile.readline(), end="")
+                if totLines == nb_lines:
+                    break
