@@ -2,8 +2,6 @@
 """
 import  json module
 """
-
-
 import json
 
 
