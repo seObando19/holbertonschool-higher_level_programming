@@ -7,10 +7,30 @@ porpuse:
 function print_sorted
 prints the list, but sorted (ascending sort)
 -----------------------------------
+------------
+    Test
+------------
+    Checking docstring for module:
+    >>> __import__('1-my_list').__doc__ != None
+    True
+
+    Checking docstring for class:
+	>>> __import__('1-my_list').MyList.__doc__ != None
+	True
+
+    Checking docstring for methods:
+	>>> __import__('1-my_list').MyList.print_sorted.__doc__ != None
+	True
+
+-------------
 Import module
 -------------
 >>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList()
+
+--------------------------------
+Create a new instance of class:
+--------------------------------
+>>> mylist = MyList()
 
 
 Test Cases:
@@ -18,71 +38,43 @@ Test Cases:
 ------------------------------
 Test 1: Passing zero arguments
 ------------------------------
->>> my_list.print_sorted()
+>>> mylist.print_sorted()
+[]
+
+>>> print(mylist)
 []
 
 ------------------------------
 Test 2: Adding values integer
 ------------------------------
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.print_sorted()
+>>> mylist.append(1)
+>>> mylist.append(4)
+>>> mylist.append(2)
+>>> mylist.append(3)
+
+>>> mylist.print_sorted()
 [1, 2, 3, 4]
 
-------------------------------
-Test 3: Adding values string
-------------------------------
->>> my_list.append("H")
->>> my_list.append("a")
->>> my_list.append("k")
->>> my_list.append("f")
->>> my_list.print_sorted()
-['H', 'a', 'f', 'k']
+>>> print(mylist)
+[1, 4, 2, 3]
 
 ------------------------------
-Test 4: Adding value string and integer
+Test 3: Adding values negative
 ------------------------------
->>> my_list.append("H")
->>> my_list.append(1)
->>> my_list.append(7)
->>> my_list.append(8)
->>> my_list.print_sorted()
-Traceback (most recent call last):
-...
-TypeError: unorderable types: int() < str()
+>>> mylist.append(-1)
+>>> mylist.append(-12)
+>>> mylist.append(-4)
+>>> mylist.append(-20)
 
--------------------------------
-Test 5: Adding value integer as string
--------------------------------
->>> my_list.append(8)
->>> my_list.append(1)
->>> my_list.append(7)
->>> my_list.append("4")
->>> my_list.print_sorted()
-Traceback (most recent call last):
-...
-TypeError: unorderable types: int() < str()
+>>> print(mylist)
+[1, 4, 2, 3, -1, -12, -4, -20]
 
--------------------------------
-Test 6: Adding value None
--------------------------------
->>> my_list.append(8)
->>> my_list.append(1)
->>> my_list.append(None)
->>> my_list.append(6)
->>> my_list.print_sorted()
-Traceback (most recent call last):
-...
-TypeError: unorderable types: NoneType() < int()
+>>> mylist.print_sorted()
+[-20, -12, -4, -1, 1, 2, 3, 4]
 
--------------------------------
-Test 7: Add one float
--------------------------------
->>> my_list.append(8)
->>> my_list.append(15.3)
->>> my_list.append(7)
->>> my_list.append(4)
->>> my_list.print_sorted()
-[4, 7, 8, 15.3]
+------------------------------
+Test 4: Clear the instance for empty list
+------------------------------
+>>> mylist.clear()
+>>> mylist
+[]
