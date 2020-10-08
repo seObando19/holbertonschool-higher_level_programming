@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """
-import  json module
+Module - class_to_json
 """
-
-
-import json
 
 
 def class_to_json(obj):
