@@ -1,78 +1,84 @@
------------------------------------
-	Testing for script
------------------------------------
-File:
-1-my_list.txt
-porpuse:
-function print_sorted
-prints the list, but sorted (ascending sort)
------------------------------------
-------------
-    Test
-------------
-    Checking docstring for module:
+check ```MyList class```
+"""
+ Test function that prints the sorted list.
+- Prototype: def print_sorted(self):
+- ou can assume that all the elements of the list will be of type int
+- You are not allowed to import any module
+"""
+-----------------------
+Checking docstring mod:
     >>> __import__('1-my_list').__doc__ != None
     True
 
-    Checking docstring for class:
-	>>> __import__('1-my_list').MyList.__doc__ != None
-	True
+Import the class:
 
-    Checking docstring for methods:
-	>>> __import__('1-my_list').MyList.print_sorted.__doc__ != None
-	True
+    >>> MyList = __import__('1-my_list').MyList
 
--------------
-Import module
--------------
->>> MyList = __import__('1-my_list').MyList
+check class docstring:
 
+    >>> MyList.__doc__ != None
+    True
 
-Test Cases:
-----------
---------------------------------
-Test 1: Create a new instance of class and add element:
---------------------------------
->>> mylist = MyList()
->>> mylist.append(1)
->>> mylist.append(4)
->>> mylist.append(2)
->>> mylist.append(3)
->>> print(mylist)
-[1, 2, 3, 4]
+Adding elements in the list:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
 
-------------------------------
-Test 2: Empty list
-------------------------------
->>> mylist.print_sorted([])
-[]
+Print the list:
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
 
-------------------------------
-Test 3: Unsorted list
-------------------------------
->>> mylist.print_sorted([5, 4, 3, 2, 1, 0])
-[0, 1, 2, 3, 4, 5]
+Print the list sorted:
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
 
-------------------------------
-Test 4: Is instance
-------------------------------
->>> isinstance(my_list([]), list)
-True
+Add a negative integer and print sorted:
+    >>> my_list.append(-1)
+    >>> my_list.print_sorted()
+    [-1, 1, 2, 3, 4, 5]
 
-------------------------------
-Test 5: Type
-------------------------------
->>> type(MyList([]))
-<class '1-my_list.MyList'>
+A sorted list, print and printing with the method:
+    >>> my_list = MyList([4, 6, 9, 8])
+    >>> print(my_list)
+    [4, 6, 9, 8]
+    >>> my_list.print_sorted()
+    [4, 6, 8, 9]
 
-------------------------------
-Test 6: MyList inherits from list
-------------------------------
->>> issubclass(MyList, list)
-True
+An empty list:
+    >>> my_list = MyList()
+    >>> print(my_list)
+    []
+    >>> my_list.print_sorted()
+    []
 
-------------------------------
-Test 7: Negative elements
-------------------------------
->>> MyList.print_sorted([1, 1, -3, 2, 1, -4])
-[-4, -3, 1, 1, 1, 2]
+Append two elements and print with the method:
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.append(4)
+    >>> my_list.print_sorted()
+    [4, 5]
+
+Declaring a list but not instance from the class:
+    >>> my_list = [4, 2, 3]
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    AttributeError: 'list' object has no attribute 'print_sorted'
+
+Append an element that is not an integer:
+    >>> my_list = MyList()
+    >>> my_list.append(4)
+    >>> my_list.append("Holberton")
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    TypeError: unorderable types: str() < int()
+
+Giving only one negative element:
+    >>> my_list = MyList()
+    >>> my_list.append(-2)
+    >>> my_list.print_sorted()
+    [-2]
