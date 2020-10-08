@@ -6,17 +6,9 @@ Class student
 
 class Student:
     """
-    Clas Student
-
-    atr:
-        first_name
-        Last_name
-        age
-
-    method:
-        def to_json(self)
+    Representation of a student
     """
-    def __init__(self, first_name, Last_name, age):
+    def __init__(self, first_name, last_name, age):
         """
         Inialization of class
         """
