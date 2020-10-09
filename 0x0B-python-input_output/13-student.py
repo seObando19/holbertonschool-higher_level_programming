@@ -34,7 +34,4 @@ class Student:
         """
          that replaces all attributes of the Student instance
         """
-        if isinstance(json, dict):
-            self.first_name = json.get("first_name")
-            self.last_name = json.get("last_name")
-            self.age = json.get("age")
+        self.__dict__.update(json)
