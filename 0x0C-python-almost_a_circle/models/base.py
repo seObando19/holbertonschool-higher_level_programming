@@ -17,6 +17,7 @@ class Base:
             __init__()
     """
     __nb_objects = 0
+
     def __init__(self, id=None):
         """
             Base class initialization method
@@ -28,7 +29,7 @@ class Base:
             self.id = id
         else:
             type(self).__nb_objects += 1
-            self.id =+ type(self).__nb_objects
+            self.id += type(self).__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -39,7 +40,7 @@ class Base:
             Args:
             list_dictionaries (list): List of dictionaries.
 
-	    Returns:
+        Returns:
             [str]: Json representation.
         """
         if list_dictionaries is None or list_dictionaries == []:
