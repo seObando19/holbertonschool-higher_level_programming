@@ -56,8 +56,10 @@ class Base:
              list_objs (JSON object): JSON representation of list_objs.
         """
         filename = cls.__name__ + ".json"
-        for value in list_objs:
-            list_dict = value.to_dictionary()
-        obj = cls.to_json_string(list_dict)
         with open(filename, mode='w', encoding='utf-8') as myFile:
+            if list_objs is None:
+                obj = cls.to_json_string(list())
+            else:
+                list_dict = [value.to_dictionary() for value in list_objs]
+                obj = cls.to_json_string(list_dict)
             myFile.write(obj)
