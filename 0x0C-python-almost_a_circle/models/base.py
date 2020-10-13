@@ -43,8 +43,8 @@ class Base:
         Returns:
             [str]: Json representation.
         """
-        if list_dictionaries is None or list_dictionaries == []:
-            return []
+        if not list_dictionaries:
+            return json.dumps(list())
         return json.dumps(list_dictionaries)
 
     @classmethod
