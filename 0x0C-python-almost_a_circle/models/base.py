@@ -5,7 +5,7 @@
 
 
 import json
-
+import os
 
 class Base:
     """
@@ -89,3 +89,18 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+
+        """
+        object = []
+        filename = cls.__name__ + '.json'
+        if not os.path.isfile(filename):
+            return obj
+        with open(filename, mode="w", encoding="utf-8") as myFile:
+            lista = cls.from_json_string(myFile.read())
+            for i in list:
+                object.append(cls.create(**i))
+            return object
