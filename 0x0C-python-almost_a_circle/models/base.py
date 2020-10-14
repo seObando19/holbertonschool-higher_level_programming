@@ -64,14 +64,14 @@ class Base:
                 obj = cls.to_json_string(list_dict)
             myFile.write(obj)
 
-        @staticmethod
-        def from_json_string(json_string):
-            """
-                list of the JSON string representation
-                Args:
-                    json_string (str): string representing
-                    a list of dictionaries
-            """
-            if not json_string:
-                return []
-            return json.loads(json_string)
+    @staticmethod
+    def from_json_string(json_string):
+        """
+            list of the JSON string representation
+            Args:
+                json_string (str): string representing
+                a list of dictionaries
+        """
+        if not json_string:
+            return []
+        return json.loads(json_string)
