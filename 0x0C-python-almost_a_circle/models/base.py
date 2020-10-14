@@ -102,7 +102,7 @@ class Base:
         filename = cls.__name__ + '.json'
         if not os.path.isfile(filename):
             return obj
-        with open(filename, mode="w", encoding="utf-8") as myFile:
+        with open(filename, mode="r", encoding="utf-8") as myFile:
             lista = cls.from_json_string(myFile.read())
             for i in list:
                 object.append(cls.create(**i))
