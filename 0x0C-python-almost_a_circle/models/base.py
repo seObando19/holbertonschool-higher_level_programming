@@ -93,7 +93,10 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
+            Read json string from a file.
 
+            Args:
+                cls
         """
         object = []
         filename = cls.__name__ + '.json'
