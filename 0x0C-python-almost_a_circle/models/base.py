@@ -79,7 +79,9 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-
+             class method that returns an
+             instance with all attributes
+             already set
         """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
