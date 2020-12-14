@@ -9,21 +9,21 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
-    #create connection to engine to db
+    """ #create connection to engine to db """
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
-    #create metadata
+    """ #create metadata """
     Base.metadata.create_all(engine)
 
-    #create instance for engine
+    """ #create instance for engine """
     Session = sessionmaker(bind=engine)
 
-    #initialize
+    """ #initialize """
     session = Session()
 
-    #query
+    """ #query """
     query = session.query(State)
-    #order data
+    """ #order data """
     colum = query.order_by(State.id).all()
 
     for row in colum:
