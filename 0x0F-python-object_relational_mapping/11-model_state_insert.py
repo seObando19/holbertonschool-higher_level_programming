@@ -23,7 +23,7 @@ if __name__ == "__main__":
     session = Session()
 
     """ Add new object """
-    obj1 = State(name = 'Louisiana')
+    obj1 = State(name='Louisiana')
     session.add(obj1)
     session.commit()
 
