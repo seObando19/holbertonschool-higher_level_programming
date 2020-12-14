@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 if __name__ == "__main__":
     #create connection to engine to db
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                        .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     #create metadata
     Base.metadata.create_all(engine)
 
