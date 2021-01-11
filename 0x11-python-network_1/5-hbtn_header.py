@@ -14,6 +14,5 @@ from sys import argv
 if __name__ == "__main__":
     URL = argv[1]
     req = requests.get(URL)
-    req = req.headers["X-Request-Id"]
-
-    print(req)
+    if req.status_code == 200:
+        print(req.headers["X-Request-Id"])
