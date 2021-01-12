@@ -20,7 +20,7 @@ if __name__ == "__main__":
     token = argv[2]
     URL = "https://api.github.com/user"
 
-    req = requests.get(URL, auth={user, token}).text
+    req = requests.get(URL, auth=(user, token)).text
     try:
         output = req[req.index("id") + 4: req.index("node") - 2]
     except ValueError:
