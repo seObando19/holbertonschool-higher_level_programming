@@ -15,4 +15,4 @@ if __name__ == "__main__":
     URL = argv[1]
     req = requests.get(URL)
     if req.status_code == 200:
-        print(req.headers.get["X-Request-Id"])
+        print(req.headers.get("X-Request-Id"))
