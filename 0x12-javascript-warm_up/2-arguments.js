@@ -4,4 +4,10 @@
 const pross = require('process');
 const cant = pross.argv;
 
-console.log(cant.length === 2 ? 'No argument' : 'Argument found');
+if (cant.length === 2) {
+  console.log('No argument');
+} else if (cant.length === 3) {
+  console.log('Argument found');
+} else {
+  console.log('Argument found');
+}
