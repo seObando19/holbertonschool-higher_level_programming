@@ -5,7 +5,7 @@ const pross = require('process');
 const myArr = pross.argv;
 
 if (!myArr[2]) {
-  console.log('Argument found');
+  console.log('No argument');
 } else {
   console.log(myArr[2]);
 }

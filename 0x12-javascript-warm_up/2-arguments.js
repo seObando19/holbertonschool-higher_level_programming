@@ -4,4 +4,4 @@
 const pross = require('process');
 const cant = pross.argv;
 
-console.log(cant.length > 2 ? 'Argument found' : 'No argument');
+console.log(cant.length >= 2 ? 'Argument found' : 'No argument');
